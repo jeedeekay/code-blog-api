@@ -82,4 +82,4 @@ connect.then(() => console.log('Connected correctly to server'),
 app.listen(4000);
 
 // https://www.youtube.com/watch?v=xKs2IZZya7c
-// Paused at 1:41:05, about to set up Create New Post functionality
+// Paused at 2:09:30, about to set up Post Model Schema
