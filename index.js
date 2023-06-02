@@ -19,6 +19,7 @@ const secret = 'ihb2345918236h9786r1d79824jyr78yr8749dr6978236897';
 app.use(cors({credentials: true, origin:'http://localhost:3000'}));
 app.use(express.json());
 app.use(cookieParser());
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 const url = dbConfig.mongoUrl;
 const connect = mongoose.connect(url);
@@ -97,6 +98,12 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
     })
 });
 
+app.get('/post/:id', async (req, res) => {
+    const {id} = req.params;
+    const postDoc = await Post.findById(id).populate('author', ['username']);
+    res.json(postDoc);
+});
+
 connect.then(() => console.log('Connected correctly to server'), 
     err => console.log(err)
 );
@@ -104,4 +111,4 @@ connect.then(() => console.log('Connected correctly to server'),
 app.listen(4000);
 
 // https://www.youtube.com/watch?v=xKs2IZZya7c
-// Paused at 2:09:30, about to set up Post Model Schema
+// Paused at 2:52:30, about to set up Post Model Schema
