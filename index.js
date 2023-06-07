@@ -111,4 +111,4 @@ connect.then(() => console.log('Connected correctly to server'),
 app.listen(4000);
 
 // https://www.youtube.com/watch?v=xKs2IZZya7c
-// Paused at 2:52:30, about to set up Post Model Schema
+// Paused at 3:18:00, making edit page
